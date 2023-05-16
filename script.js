@@ -22,7 +22,7 @@ const playorpause=(event)=>{
 //update progress bar
 
 const updateprogressbar=(event)=>{
-    console.log(event.target.currentTime,event.target.duration);
+    // console.log(event.target.currentTime,event.target.duration);
     let value=(event.target.currentTime)*100
     progressbar.style.cssText= `
     width:${value/event.target.duration}%
@@ -32,11 +32,10 @@ const updateprogressbar=(event)=>{
 //update seek
 
 const updateSeekbar=(event)=>{
-    if(event.target.classList=='progress-bar'){
-    event.target.replace('progress-bar','progress-range');
-    }
+    let calculateWidth=progressRange.getBoundingClientRect();
+    console.log(calculateWidth)
    let currentPoint= event.offsetX;
-   let progressBarWidth=event.target.clientWidth;
+   let progressBarWidth=calculateWidth;
    let currentRange=(currentPoint/progressBarWidth)*video.duration;
    video.currentTime=currentRange;
    console.log(currentRange);
@@ -49,3 +48,4 @@ playbtn.addEventListener('click',playorpause);
 video.addEventListener('click',playorpause);
 video.addEventListener('timeupdate',updateprogressbar)
 progressRange.addEventListener('click',updateSeekbar);
+
