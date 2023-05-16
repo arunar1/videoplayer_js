@@ -2,7 +2,7 @@ let playbtn=document.getElementById('play-btn');
 
 let video=document.querySelector('.video');
 let progressbar=document.querySelector('.progress-bar');
-
+let progressRange=document.querySelector('.progress-range')
 let isVideoPlaying=false;
 
 //play or pause
@@ -27,12 +27,25 @@ const updateprogressbar=(event)=>{
     progressbar.style.cssText= `
     width:${value/event.target.duration}%
     `;
+    // progressbar.style.cssText='backgroundColor:"red"'
+}
+//update seek
+
+const updateSeekbar=(event)=>{
+    if(event.target.classList=='progress-bar'){
+    event.target.replace('progress-bar','progress-range');
+    }
+   let currentPoint= event.offsetX;
+   let progressBarWidth=event.target.clientWidth;
+   let currentRange=(currentPoint/progressBarWidth)*video.duration;
+   video.currentTime=currentRange;
+   console.log(currentRange);
 
 }
-
 
 //add event listerners
 
 playbtn.addEventListener('click',playorpause);
 video.addEventListener('click',playorpause);
 video.addEventListener('timeupdate',updateprogressbar)
+progressRange.addEventListener('click',updateSeekbar);
