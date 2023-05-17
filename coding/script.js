@@ -127,3 +127,52 @@ console.log(users);
  
 
 Solution(users)
+
+const histogram=(aray,str)=>{
+    for(let i=0;i<aray.length;i++){
+        let value1=aray[i];
+        str1='';
+        for(let j=0;j<value1;j++){
+            str1+=str;
+        }
+        console.log(str1);
+    }
+}
+histogram([5,2,5,3],'#');
+
+
+
+//function simple ways
+
+const newHistogram=(array1,str)=>{
+    // for(let i=0;i<array1.length;i++){
+    //     let re=array1[i];
+    //     console.log(str.repeat(re));
+       
+    // }
+    array1.map((values1)=>{
+        console.log(str.repeat(values1))
+    })
+
+}
+newHistogram([2,6,4],"$")
+
+console.clear()
+
+let numberArray=[];
+
+const rangeNumber=(start,end)=>{
+    if(start<=end){
+        while(start<=end){
+            numberArray.push(start);
+            start++
+        }
+    }
+    else{
+        console.log("Enter the valid creditials ");
+    }
+    return numberArray;
+}
+
+let ArraY=rangeNumber(2,85);
+console.log(ArraY);
