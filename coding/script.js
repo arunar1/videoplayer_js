@@ -176,3 +176,56 @@ const rangeNumber=(start,end)=>{
 
 let ArraY=rangeNumber(2,85);
 console.log(ArraY);
+
+// ArraY.forEach((element)=>{
+//     let listIttem=document.createElement('li'); 
+//     console.log(element);
+//    stdList.appendChild(listIttem);
+//    listIttem.innerText=element;
+// })
+
+//mission secret password
+
+
+const isLowerOnly=(userInput)=>{
+    //regex requler expression
+    const lowerCaseOnly=/^[a-z]+$/g;
+    
+    return lowerCaseOnly.test(userInput);
+
+}
+
+const secretPassword=(userInput)=>{
+    if(userInput.length<9){
+        console.log("bang bang")
+    }
+    else{
+        console.log('First test is passed')
+        let check2=isLowerOnly(userInput);
+        // console.log(check2);
+        if(check2){
+            console.log("second test is passed")
+            const splitArr=userInput.match(/.{1,3}/g)
+            console.log(splitArr);
+        }
+        else{
+            console.log("useonly small letters")
+        }
+    }
+
+}
+secretPassword("arunarueeeee")
+
+let greeting='hello';
+greeting=greeting.split("");
+const greetingArray=greeting.forEach((elements)=>{
+    console.log(elements);
+})
+
+const imageGallery=document.querySelector('.img-gallery');
+
+const addImages=()=>{
+    
+}
+
+addImages();
