@@ -216,16 +216,45 @@ const secretPassword=(userInput)=>{
 }
 secretPassword("arunarueeeee")
 
-let greeting='hello';
-greeting=greeting.split("");
-const greetingArray=greeting.forEach((elements)=>{
-    console.log(elements);
-})
+// let greeting='hello';
+// greeting=greeting.split("");
+// const greetingArray=greeting.forEach((elements)=>{
+//     console.log(elements);
+// })
 
 const imageGallery=document.querySelector('.img-gallery');
 
-const addImages=()=>{
-    
+const ImageSrc=['  appointment.png','appointment.jpeg',' ','history.png','correct.png','rescheduling.png'];
+
+const getImages=(ImageSrc)=>{
+    const selectedImages=ImageSrc
+    .map((imgsrc)=>
+    {
+        return imgsrc.trim();
+    }).filter((imgsrc)=>{
+        return imgsrc.length!==0 && imgsrc.match(/.png/);
+    })
+    return selectedImages
+    // console.log(selectedImages);
+    // selectedImages.forEach((elem)=>{
+    //     console.log(elem);
+    // })
+
+
 }
 
-addImages();
+const addImages=(ImageSrc)=>{
+    let selectedImages=getImages(ImageSrc) 
+    console.log(selectedImages)
+    selectedImages.forEach((imgsrc)=>{
+        const galleryEl=document.createElement('li');
+        const galleryLiImg=document.createElement('img');
+        galleryLiImg.setAttribute('src',imgsrc)
+        galleryEl.appendChild(galleryLiImg)
+        imageGallery.appendChild(galleryEl);
+        console.log(galleryEl);
+    })
+
+}
+
+addImages(ImageSrc);
