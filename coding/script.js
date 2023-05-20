@@ -249,7 +249,7 @@ const addImages=(ImageSrc)=>{
     selectedImages.forEach((imgsrc)=>{
         const galleryEl=document.createElement('li');
         const galleryLiImg=document.createElement('img');
-        galleryLiImg.setAttribute('src',imgsrc)
+        galleryLiImg.setAttribute('src',`${imgsrc}`)
         galleryEl.appendChild(galleryLiImg)
         imageGallery.appendChild(galleryEl);
         console.log(galleryEl);
@@ -258,3 +258,13 @@ const addImages=(ImageSrc)=>{
 }
 
 addImages(ImageSrc);
+
+
+
+myarry=['mango','pinapple','robust','kilichundan'];
+
+console.log(myarry);
+
+myarry.splice(1,1);
+
+console.log(myarry)
