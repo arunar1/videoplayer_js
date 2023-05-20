@@ -263,8 +263,7 @@ addImages(ImageSrc);
 
 myarry=['mango','pinapple','robust','kilichundan'];
 
-console.log(myarry);
+console.log(myarry.slice(-3));
 
-myarry.splice(1,1);
 
-console.log(myarry)
+
