@@ -21,11 +21,15 @@ getTotalprice(groceries)
 
 const createUI=()=>{
     const groceriesParenetEl=document.querySelector('.groceries');
-    const groceriesListItem=document.createElement('li');
-    groceriesParenetEl.appendChild(groceriesListItem)
+   
     console.log(groceriesParenetEl)
     let title=getTItle(groceries)
     console.log(title);
+    title.map((title)=>{
+        const groceriesListItem=document.createElement('li');
+        groceriesParenetEl.appendChild(groceriesListItem)
+        groceriesListItem.innerHTML=title;
+    })
 }
 const getTItle=(groceries)=>{
      return Object.keys(groceries[0])
