@@ -1,0 +1,18 @@
+*{
+    box-sizing: border-box;
+}
+ul{
+    display: grid;
+    grid-template-columns: 100px 100px 100px;
+    list-style-type: none;
+    background-color: blue;
+    color: wheat;
+    width: 400px;
+    /* justify-content: space-around; */
+}
+ul li{
+    border: 2px solid black;
+    padding: 5px 10px;
+    width: 100px;
+
+}

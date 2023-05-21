@@ -1,10 +1,15 @@
 const groceries=[{product:'milk',
-quantiyt:1,
+quantity:1,
 price:1.5},
 {
     product:'Banan',
     quantity:2,
     price:2
+},
+{
+product:"soap",
+quantity:2,
+price:20
 }]
 
 const getTotalprice=(groceries)=>{
@@ -21,20 +26,38 @@ getTotalprice(groceries)
 
 const createUI=()=>{
     const groceriesParenetEl=document.querySelector('.groceries');
-   
+    
     console.log(groceriesParenetEl)
     let title=getTItle(groceries)
-    console.log(title);
-    title.map((title)=>{
+    
+    title.map((titl)=>{
+        console.log(titl)
+        
+        
         const groceriesListItem=document.createElement('li');
         groceriesParenetEl.appendChild(groceriesListItem)
-        groceriesListItem.innerHTML=title;
+        groceriesListItem.innerHTML=titl.charAt(titl[0]).toUpperCase()+titl.slice(1);
     })
+     getValues(groceries).map((item)=>{
+        item.map((titl)=>{
+            console.log(titl)
+            const groceriesListItem=document.createElement('li');
+            groceriesParenetEl.appendChild(groceriesListItem)
+            groceriesListItem.innerHTML=titl;
+        })
+
+     })
 }
 const getTItle=(groceries)=>{
      return Object.keys(groceries[0])
 
 }
+const getValues=(groceries)=>{
+    return groceries.map((grocerieItem)=>{
+        return Object.values(grocerieItem);
 
+    })
+
+}
 
 createUI()
