@@ -10,15 +10,19 @@ price:1.5},
 product:"soap",
 quantity:2,
 price:20
+},
+{
+    product:'bread',
+    quantity:2,
+    price:25
 }]
 
 const getTotalprice=(groceries)=>{
-    let totalCost=  groceries.map((item)=>{
+    return  groceries.map((item)=>{
         return Object.values(item).slice(-2).reduce((acc,num)=>{
             return acc*num
         })
     })
-    console.log(totalCost)
 
 }
 
@@ -26,7 +30,7 @@ getTotalprice(groceries)
 
 const createUI=()=>{
     const groceriesParenetEl=document.querySelector('.groceries');
-    
+    const totalPriceEl=document.getElementById('total');
     console.log(groceriesParenetEl)
     let title=getTItle(groceries)
     
@@ -36,6 +40,7 @@ const createUI=()=>{
         
         const groceriesListItem=document.createElement('li');
         groceriesParenetEl.appendChild(groceriesListItem)
+        groceriesListItem.classList.add('header');
         groceriesListItem.innerHTML=titl.charAt(titl[0]).toUpperCase()+titl.slice(1);
     })
      getValues(groceries).map((item)=>{
@@ -47,7 +52,15 @@ const createUI=()=>{
         })
 
      })
+     const value1=getTotalprice(groceries);
+     console.log(value1)
+     const total=value1.reduce((acc,num)=>{
+        return acc+num
+     })
+     console.log(total)
+     totalPriceEl.innerHTML=` ${total.toFixed(2)}`;
 }
+
 const getTItle=(groceries)=>{
      return Object.keys(groceries[0])
 
@@ -57,6 +70,7 @@ const getValues=(groceries)=>{
         return Object.values(grocerieItem);
 
     })
+
 
 }
 
